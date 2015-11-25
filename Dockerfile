@@ -1,13 +1,9 @@
-FROM klikatech/teamcity-agent-base
+FROM java:openjdk-8-jdk
 
-USER root
+MAINTAINER Aurélien Leboulanger <leboulanger.aurelien@gmail.com>
 
-ENV MAVEN_VERSION 3.3.3
+ADD runAgent /opt/TeamCity/
 
-RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
-  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+RUN chmod 755 /opt/TeamCity/runAgent
 
-ENV MAVEN_HOME /usr/share/maven
-
-USER teamcity
+CMD ["/opt/TeamCity/runAgent"]
