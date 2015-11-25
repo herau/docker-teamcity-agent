@@ -32,7 +32,7 @@ The bootstrap script will automatically download (from the TeamCity server) and 
 
 #### Maven repository
 
-By default, the Maven repository should be created in `/root/.m2/repository`. This directory can be shared between severals agents container with a [data container](https://docs.docker.com/engine/userguide/dockervolumes/)
+The Maven repository should be created in `/root/.m2/repository`. This directory can be shared between severals agents container with a [data container](https://docs.docker.com/engine/userguide/dockervolumes/)
 
 Example: 
 
